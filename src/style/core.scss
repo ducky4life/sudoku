@@ -1,0 +1,161 @@
+body {
+  font-family: "Inter", sans-serif;
+  background-color: $bg-color;
+  color: $fg-color;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+// common css components
+
+.hidden {
+  opacity: 0;
+}
+
+.disabled {
+  opacity: 0.25;
+}
+
+.btn {
+  background-color: $button-bg-color;
+  border: 1px solid $button-border-color;
+  border-radius: $radius-3;
+  margin: 0.3rem;
+  padding: 0.4rem 0.7rem;
+
+  &.selected {
+    background-color: $button-bg-color-selected;
+    border-color: $button-border-color-selected;
+  }
+
+  &.dimmed {
+    opacity: 0.5;
+  }
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+
+  &:active {
+    filter: brightness(0.8);
+  }
+}
+
+.badge {
+  background-color: darken($bg-color, 5);
+  border-radius: 0.3rem;
+  padding: 0.3rem 0.5rem;
+  margin: 0.15rem;
+}
+
+.info {
+  background-color: $info-color;
+}
+
+.success {
+  background-color: $success-color;
+}
+
+.warning {
+  background-color: $warning-color;
+}
+
+.error {
+  background-color: $error-color;
+}
+
+// common layout
+
+.columns {
+  display: flex;
+  flex-direction: row;
+
+  @media (max-width: $media-sm) {
+    flex-direction: column;
+  }
+}
+
+.column {
+  &.centered {
+    align-self: center;
+  }
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+
+  span {
+    align-self: center;
+  }
+}
+
+.align-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.align-right {
+  position: absolute;
+  right: 0px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.box {
+  position: relative;
+  margin: 1rem;
+
+  @media (max-width: $media-lg) {
+    margin: 0.5rem;
+  }
+}
+
+// customization
+
+.text-xs {
+  font-size: $size-xs;
+}
+.text-sm {
+  font-size: $size-sm;
+}
+.text-base {
+  font-size: $size-base;
+}
+.text-lg {
+  font-size: $size-lg;
+}
+.text-xl {
+  font-size: $size-xl;
+}
+.text-2xl {
+  font-size: $size-2xl;
+}
+.text-3xl {
+  font-size: $size-3xl;
+}
+.text-4xl {
+  font-size: $size-4xl;
+}
+.text-5xl {
+  font-size: $size-5xl;
+}
+.text-6xl {
+  font-size: $size-6xl;
+}
+.text-7xl {
+  font-size: $size-7xl;
+}
+.text-8xl {
+  font-size: $size-8xl;
+}
+.text-9xl {
+  font-size: $size-9xl;
+}
