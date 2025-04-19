@@ -5,7 +5,7 @@
   "main": "/src/index.tsx",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "serve -s build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
