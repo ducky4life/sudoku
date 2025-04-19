@@ -1,0 +1,40 @@
+{
+  "name": "sudoku",
+  "version": "0.1.0",
+  "main": "/src/index.tsx",
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "serve -s build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "prod": "serve -s build"
+  },
+  "dependencies": {
+    "@types/react": "^18.2.47",
+    "@types/react-dom": "^18.2.18",
+    "gh-pages": "^6.3.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-hotkeys-hook": "^4.4.4",
+    "react-native": "^0.73.1",
+    "react-native-web": "^0.19.10",
+    "react-scripts": "^5.0.0",
+    "sass": "^1.69.7",
+    "serve": "^14.2.4",
+    "sudoku": "^0.0.3"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

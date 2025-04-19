@@ -1,0 +1,190 @@
+/* Sudoku game board style */
+$grid-color: #777;
+$tile-size: 4.5em;
+$tile-color-hover: $fg-color;
+$tile-color-selected: lighten($fg-color, 50);
+$tile-color-error: hsl(0, 100%, 62%);
+$tile-bg-color: $bg-color;
+$tile-bg-color-hover: lighten($bg-color, 3);
+$tile-bg-color-selected: rgba(255, 255, 255, 0.273);
+$tile-border-color-selected-other: rgba(43, 255, 156, 0.321);
+$puzzle-tile-color: hsl(0, 0%, 50%);
+$puzzle-tile-bg-color: hsla(0, 0%, 100%, 0.075);
+$completed-color: hsl(156, 50%, 54%);
+$completed-bg-color: hsla(156, 50%, 54%, 0.04);
+
+.su-game {
+  .play-area {
+    display: flex;
+    justify-content: center;
+
+    @media (max-width: $media-xl) {
+      font-size: 16px * 0.8;
+    }
+
+    @media (max-width: $media-lg) {
+      font-size: 16px * 0.6;
+    }
+  }
+
+  .grid {
+    display: grid;
+    width: fit-content;
+    height: fit-content;
+  }
+
+  .main-grid {
+    border: 2px solid $grid-color;
+  }
+
+  .sub-grid {
+    border: 2px solid $grid-color;
+  }
+
+  .grid-col-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .grid-row-3 {
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+
+  .num {
+    position: absolute;
+    transform: translate(-50%, -50%);
+
+    top: 50%;
+    left: 50%;
+
+    &.candidate {
+      opacity: 0.5;
+    }
+
+    &.col-0 {
+      left: 20%;
+    }
+    &.col-1 {
+      left: 50%;
+    }
+    &.col-2 {
+      left: 80%;
+    }
+
+    &.row-0 {
+      top: 20%;
+    }
+    &.row-1 {
+      top: 50%;
+    }
+    &.row-2 {
+      top: 80%;
+    }
+  }
+
+  .num-lg {
+    font-size: 3em;
+  }
+
+  .num-sm {
+    font-size: 1.25em;
+  }
+
+  .tile {
+    display: grid;
+    align-content: center;
+    position: relative;
+
+    width: $tile-size;
+    height: $tile-size;
+
+    margin-right: -1px;
+    margin-bottom: -1px;
+    padding: 0;
+
+    background-color: $tile-bg-color;
+    border: 1px solid $grid-color;
+
+    &.puzzle {
+      color: $puzzle-tile-color;
+      background: $puzzle-tile-bg-color;
+    }
+
+    &.selected {
+      background-color: $tile-bg-color-selected;
+      color: $tile-color-selected;
+    }
+
+    &.net-selected {
+      border: 3px solid $tile-border-color-selected-other;
+    }
+
+    &.error {
+      background-color: fade-out($error-color, 0.15);
+      color: $tile-color-error;
+
+      &.selected {
+        background-color: fade-out($error-color, 0.01);
+      }
+    }
+
+    &:hover {
+      filter: brightness(1.1);
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  .numpad {
+    .btn {
+      position: relative;
+      width: $tile-size;
+      height: $tile-size;
+    }
+  }
+
+  &.completed {
+    .main-grid {
+      background-color: $completed-bg-color;
+      border-color: $completed-color;
+      animation: ani-board-flash 2s ease-in-out 0.15s 1 forwards;
+      transition: border-color 1s ease-in-out 2s;
+      transition: background-color 1s ease-in-out 2s;
+
+      .sub-grid {
+        color: $completed-color;
+        border-color: $completed-color;
+        transition: color 0.5s ease-in-out 1s;
+        transition: border-color 0.5s ease-in-out 1s;
+      }
+
+      .tile {
+        color: $completed-color;
+        border-color: $completed-color;
+        background: transparent;
+        transition: color 0.25s ease-in-out 0s;
+      }
+    }
+
+    .puzzle-info {
+      color: $completed-color;
+      transition: color 0.5s ease-in-out 1s;
+    }
+  }
+}
+
+@keyframes ani-board-flash {
+  0% {
+    background-color: $completed-bg-color;
+  }
+  15% {
+    background-color: fade-in($completed-bg-color, 0.2);
+  }
+  35% {
+    background-color: fade-in($completed-bg-color, 0.05);
+  }
+  100% {
+    opacity: $completed-bg-color;
+  }
+}
