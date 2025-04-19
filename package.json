@@ -1,5 +1,6 @@
 {
   "name": "sudoku",
+  "homepage": "https://ducky4life.github.io/sudoku",
   "version": "0.1.0",
   "main": "/src/index.tsx",
   "scripts": {
